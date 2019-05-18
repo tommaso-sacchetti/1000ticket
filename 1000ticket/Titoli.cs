@@ -10,10 +10,10 @@ namespace _1000ticket
 
     public abstract class TitoloAccesso
     {
-        public string Id { get; }
-        public int Prezzo { get; }
-        public DateTime OrarioVendita { get; }
-        public string UsernameVenditore { get; }
+        protected string Id { get; }
+        protected int Prezzo { get; }
+        protected DateTime OrarioVendita { get; }
+        protected string UsernameVenditore { get; }
 
         public TitoloAccesso(string Id, int Prezzo, DateTime OrarioVendita, string UsernameVenditore)
         {
@@ -27,16 +27,21 @@ namespace _1000ticket
 
     public class Abbonamento : TitoloAccesso
     {
-        public TipoAbbonamento TipoTitolo { get; }
-        public int IngressiTotali { get; }
-        public int IngressiRimanenti { get; set; }
-        public DateTime? OrarioUltimoAccesso { get; set; }
+        protected int prezzoAbbonamentoDue { get; } = 18;
+        protected int prezzoAbbonamentoCinque { get; } = 45;
+        protected int prezzoAbbonamentoDieci { get; } = 90;
+
+        protected TipoAbbonamento TipoTitolo { get; }
+        protected int IngressiTotali { get; }
+        protected int IngressiRimanenti { get; set; }
+        protected DateTime? OrarioUltimoAccesso { get; set; }
 
         public Abbonamento(TipoAbbonamento tipo, string id, int prezzo, DateTime orarioVendita, string usernameVenditore) :
              base(id, prezzo, orarioVendita, usernameVenditore)
         {
             TipoTitolo = tipo;
-            IngressiTotali = (int)TipoTitolo == 0 ? 2 : (int)TipoTitolo == 1 ? 5 : 10;
+            IngressiTotali = (int)TipoTitolo == 0 ? prezzoAbbonamentoDue : 
+                (int)TipoTitolo == 1 ? prezzoAbbonamentoCinque : prezzoAbbonamentoDieci;
             IngressiRimanenti = IngressiTotali;
             OrarioUltimoAccesso = null;
             /*
