@@ -1,6 +1,7 @@
 ﻿using System;
 namespace _1000ticket
 {
+
     public enum TipoAbbonamento
     {
         abbonamentoDue = 1,
@@ -20,47 +21,104 @@ namespace _1000ticket
     public abstract class TitoloAccesso
     {
         protected string Id { get; }
-        protected int Prezzo { get; }
+        protected float Prezzo { get; set; }
         protected DateTime OrarioVendita { get; }
         protected string UsernameVenditore { get; }
 
-        public TitoloAccesso(string Id, int Prezzo, DateTime OrarioVendita, string UsernameVenditore)
+        protected TitoloAccesso(string Id, DateTime OrarioVendita, string UsernameVenditore)
         {
             this.Id = Id;
-            this.Prezzo = Prezzo;
             this.OrarioVendita = OrarioVendita;
             this.UsernameVenditore = UsernameVenditore;
         }
+
     }
 
 
     public class Abbonamento : TitoloAccesso
     {
-        protected int prezzoAbbonamentoDue { get; } = 18;
-        protected int prezzoAbbonamentoCinque { get; } = 45;
-        protected int prezzoAbbonamentoDieci { get; } = 90;
+        public readonly int PREZZOABBDUE = 10;
+        public readonly int PREZZOABBCINQUE = 15;
+        public readonly int PREZZOABBDIECI = 20;
 
-        protected TipoAbbonamento TipoTitolo { get; }
-        protected int IngressiTotali { get; }
-        protected int IngressiRimanenti { get; set; }
-        protected DateTime? OrarioUltimoAccesso { get; set; }
+        private TipoAbbonamento TipoTitolo { get; }
+        private int IngressiTotali { get; }
+        private int IngressiRimanenti { get; set; }
+        private DateTime? OrarioUltimoAccesso { get; set; }
 
-        public Abbonamento(TipoAbbonamento tipo, string id, int prezzo, DateTime orarioVendita, string usernameVenditore) :
-             base(id, prezzo, orarioVendita, usernameVenditore)
+        public Abbonamento(TipoAbbonamento tipo, string id, DateTime orarioVendita, string usernameVenditore) :
+             base(id, orarioVendita, usernameVenditore)
         {
             TipoTitolo = tipo;
-            IngressiTotali = (int)TipoTitolo == 0 ? prezzoAbbonamentoDue : 
-                (int)TipoTitolo == 1 ? prezzoAbbonamentoCinque : prezzoAbbonamentoDieci;
+            switch (TipoTitolo)
+            {
+                case (TipoAbbonamento.abbonamentoDue):
+                    {
+                        Prezzo = PREZZOABBDUE;
+                        break;
+                    }
+                case (TipoAbbonamento.abbonamentoCinque):
+                    {
+                        Prezzo = PREZZOABBCINQUE;
+                        break;
+                    }
+                case (TipoAbbonamento.abbonamentoDieci):
+                    {
+                        Prezzo = PREZZOABBDIECI;
+                        break;
+                    }
+
+            }
             IngressiRimanenti = IngressiTotali;
             OrarioUltimoAccesso = null;
-            /*
-            Id = id;
-            Prezzo = prezzo;
-            OrarioVendita = orarioVendita;
-            UsernameVenditore = usernameVenditore;
-            */           
         }
 
+
+        public class Biglietto : TitoloAccesso
+        {
+            public readonly float PREZZOINTERO = 8;
+            public readonly float PREZZORIDOTTO = 6;
+            public readonly float PREZZORIDOTTOCONAD = 4.2f;
+            public readonly float PREZZORIDOTTOCARTOLINA = 3.8f;
+            public readonly float PREZZOOMAGGIO = 0;
+
+            private Boolean stato;
+            private TipoBiglietto tipoTitolo;
+
+            public Biglietto(TipoBiglietto tipo, string id,  DateTime orarioVendita, string usernameVenditore): 
+                base(id, orarioVendita, usernameVenditore)
+            {
+                this.stato = false; //false = NON CONVALIDATO, true = GIA' CONVALIDATO
+                switch (tipo)
+                {
+                    case (TipoBiglietto.intero):
+                        {
+                            this.Prezzo = PREZZOINTERO;
+                            break;
+                        }
+                    case (TipoBiglietto.ridotto):
+                        {
+                            this.Prezzo = PREZZORIDOTTO;
+                            break;
+                        }
+                    case (TipoBiglietto.ridottoConad):
+                        {
+                            this.Prezzo = PREZZORIDOTTOCONAD;
+                            break;
+                        }
+                    case (TipoBiglietto.ridottoCartolina):
+                        {
+                            this.Prezzo = PREZZORIDOTTOCARTOLINA;
+                            break;
+                        }
+                    case (TipoBiglietto.omaggio):
+                        {
+                            this.Prezzo = PREZZOOMAGGIO;
+                            break;
+                        }
+                }
+            }
+        }
 
     }
 }
