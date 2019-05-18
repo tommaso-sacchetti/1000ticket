@@ -3,9 +3,18 @@ namespace _1000ticket
 {
     public enum TipoAbbonamento
     {
-        abbonamentoDue = 0,
-        abbonamentoCinque = 1,
-        abbonamentoDieci = 2,
+        abbonamentoDue = 1,
+        abbonamentoCinque = 2,
+        abbonamentoDieci = 3,
+    }
+
+    public enum TipoBiglietto
+    {
+        intero = 1,
+        ridotto = 2,
+        ridottoConad = 3,
+        ridottoCartolina = 4,
+        omaggio = 5
     }
 
     public abstract class TitoloAccesso
