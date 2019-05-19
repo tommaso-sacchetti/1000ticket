@@ -9,4 +9,12 @@
   <ItemGroup>
     <Compile Remove="Program.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Model\" />
+    <Folder Include="GestioneVendite\" />
+    <Folder Include="GestioneAccessi\" />
+    <Folder Include="GestioneSistema\" />
+    <Folder Include="Login\" />
+    <Folder Include="Log\" />
+  </ItemGroup>
 </Project>

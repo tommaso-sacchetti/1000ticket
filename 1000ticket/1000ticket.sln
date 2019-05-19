@@ -1,7 +1,7 @@
 
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "1000ticket_client", "1000ticket_client.csproj", "{6DE63982-8A13-4B83-94E5-42364AA7D1B8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "1000ticket", "1000ticket.csproj", "{6DE63982-8A13-4B83-94E5-42364AA7D1B8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

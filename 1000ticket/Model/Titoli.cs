@@ -161,4 +161,5 @@ namespace _1000ticket
             Foto = foto;
         }
     }
+
 }
