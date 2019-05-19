@@ -1,5 +1,4 @@
 ﻿using System;
-using System.IO
 
 namespace _1000ticket
 {
@@ -22,20 +21,20 @@ namespace _1000ticket
 
     public abstract class TitoloAccesso
     {
-        protected string Id { get; }
-        //public string Id { get { return id; } }
-        protected float Prezzo { get; set; }
-        //public float Prezzo { get { return prezzo; } set { prezzo = value; } }
-        protected DateTime OrarioVendita { get; set; }
-        //public DateTime OrarioVendita { get { return orarioVendita; } set { orarioVendita = value; } }
-        protected string UsernameVenditore { get; set; }
-        //public string UsernameVenditore { get { return usernameVenditore; } set { usernameVenditore = value; } }
+        protected string id;
+        public string Id { get { return id; } }
+        protected float prezzo;
+        public float Prezzo { get { return prezzo; } set { prezzo = value; } }
+        protected DateTime orarioVendita;
+        public DateTime OrarioVendita { get { return orarioVendita; } set { orarioVendita = value; } }
+        protected string usernameVenditore;
+        public string UsernameVenditore { get { return usernameVenditore; } set { usernameVenditore = value; } }
 
         protected TitoloAccesso(string Id, DateTime OrarioVendita, string UsernameVenditore)
         {
-            this.Id = Id;
-            this.OrarioVendita = OrarioVendita;
-            this.UsernameVenditore = UsernameVenditore;
+            this.id = Id;
+            this.orarioVendita = OrarioVendita;
+            this.usernameVenditore = UsernameVenditore;
         }
 
     }
@@ -65,16 +64,19 @@ namespace _1000ticket
             {
                 case (TipoAbbonamento.abbonamentoDue):
                     {
+                        ingressiTotali = 2;
                         Prezzo = PREZZOABBDUE;  //qua bisogna usare il 
                         break;
                     }
                 case (TipoAbbonamento.abbonamentoCinque):
                     {
+                        ingressiTotali = 5;
                         Prezzo = PREZZOABBCINQUE;
                         break;
                     }
                 case (TipoAbbonamento.abbonamentoDieci):
                     {
+                        ingressiTotali = 10;
                         Prezzo = PREZZOABBDIECI;
                         break;
                     }
