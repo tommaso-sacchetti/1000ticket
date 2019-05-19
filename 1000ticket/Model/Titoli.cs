@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace _1000ticket
+namespace Model
 {
 
     public enum TipoAbbonamento
