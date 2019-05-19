@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Net.Sockets;
 
 namespace Model
 {
@@ -159,6 +160,7 @@ namespace Model
             CodFisc = codFisc;
             Azienda = azienda;
             Foto = foto;
+
         }
     }
 
