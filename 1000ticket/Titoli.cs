@@ -1,4 +1,6 @@
 ﻿using System;
+using System.IO
+
 namespace _1000ticket
 {
 
@@ -21,9 +23,13 @@ namespace _1000ticket
     public abstract class TitoloAccesso
     {
         protected string Id { get; }
+        //public string Id { get { return id; } }
         protected float Prezzo { get; set; }
-        protected DateTime OrarioVendita { get; }
-        protected string UsernameVenditore { get; }
+        //public float Prezzo { get { return prezzo; } set { prezzo = value; } }
+        protected DateTime OrarioVendita { get; set; }
+        //public DateTime OrarioVendita { get { return orarioVendita; } set { orarioVendita = value; } }
+        protected string UsernameVenditore { get; set; }
+        //public string UsernameVenditore { get { return usernameVenditore; } set { usernameVenditore = value; } }
 
         protected TitoloAccesso(string Id, DateTime OrarioVendita, string UsernameVenditore)
         {
@@ -41,20 +47,25 @@ namespace _1000ticket
         public readonly int PREZZOABBCINQUE = 15;
         public readonly int PREZZOABBDIECI = 20;
 
-        private TipoAbbonamento TipoTitolo { get; }
-        private int IngressiTotali { get; }
-        private int IngressiRimanenti { get; set; }
-        private DateTime? OrarioUltimoAccesso { get; set; }
+        private TipoAbbonamento tipoTitolo;
+        public TipoAbbonamento TipoTitolo { get { return tipoTitolo; } set { tipoTitolo = value; } }
+        private readonly int ingressiTotali;
+        public int IngressiTotali { get { return ingressiTotali; } }
+        private int ingressiRimanenti;
+        public int IngressiRimanenti { get { return ingressiRimanenti; } set { ingressiRimanenti = value; } }
+        private DateTime? orarioUltimoAccesso;
+        public DateTime? OrarioUltimoAccesso { get { return orarioUltimoAccesso; } set { orarioUltimoAccesso = value; } }
 
         public Abbonamento(TipoAbbonamento tipo, string id, DateTime orarioVendita, string usernameVenditore) :
              base(id, orarioVendita, usernameVenditore)
         {
             TipoTitolo = tipo;
-            switch (TipoTitolo)
+
+            switch (tipo)
             {
                 case (TipoAbbonamento.abbonamentoDue):
                     {
-                        Prezzo = PREZZOABBDUE;
+                        Prezzo = PREZZOABBDUE;  //qua bisogna usare il 
                         break;
                     }
                 case (TipoAbbonamento.abbonamentoCinque):
@@ -72,53 +83,63 @@ namespace _1000ticket
             IngressiRimanenti = IngressiTotali;
             OrarioUltimoAccesso = null;
         }
+    }
 
 
-        public class Biglietto : TitoloAccesso
+    public class Biglietto : TitoloAccesso
+    {
+        public readonly float PREZZOINTERO = 8;
+        public readonly float PREZZORIDOTTO = 6;
+        public readonly float PREZZORIDOTTOCONAD = 4.2f;
+        public readonly float PREZZORIDOTTOCARTOLINA = 3.8f;
+        public readonly float PREZZOOMAGGIO = 0;
+
+        private Boolean Stato { get; set; }
+        private TipoBiglietto TipoTitolo { get; set; }
+
+        public Biglietto(TipoBiglietto tipo, string id, DateTime orarioVendita, string usernameVenditore) :
+            base(id, orarioVendita, usernameVenditore)
         {
-            public readonly float PREZZOINTERO = 8;
-            public readonly float PREZZORIDOTTO = 6;
-            public readonly float PREZZORIDOTTOCONAD = 4.2f;
-            public readonly float PREZZORIDOTTOCARTOLINA = 3.8f;
-            public readonly float PREZZOOMAGGIO = 0;
-
-            private Boolean stato;
-            private TipoBiglietto tipoTitolo;
-
-            public Biglietto(TipoBiglietto tipo, string id,  DateTime orarioVendita, string usernameVenditore): 
-                base(id, orarioVendita, usernameVenditore)
+            this.Stato = false; //false = NON CONVALIDATO, true = GIA' CONVALIDATO
+            switch (tipo)
             {
-                this.stato = false; //false = NON CONVALIDATO, true = GIA' CONVALIDATO
-                switch (tipo)
-                {
-                    case (TipoBiglietto.intero):
-                        {
-                            this.Prezzo = PREZZOINTERO;
-                            break;
-                        }
-                    case (TipoBiglietto.ridotto):
-                        {
-                            this.Prezzo = PREZZORIDOTTO;
-                            break;
-                        }
-                    case (TipoBiglietto.ridottoConad):
-                        {
-                            this.Prezzo = PREZZORIDOTTOCONAD;
-                            break;
-                        }
-                    case (TipoBiglietto.ridottoCartolina):
-                        {
-                            this.Prezzo = PREZZORIDOTTOCARTOLINA;
-                            break;
-                        }
-                    case (TipoBiglietto.omaggio):
-                        {
-                            this.Prezzo = PREZZOOMAGGIO;
-                            break;
-                        }
-                }
+                case (TipoBiglietto.intero):
+                    {
+                        Prezzo = PREZZOINTERO;
+                        break;
+                    }
+                case (TipoBiglietto.ridotto):
+                    {
+                        Prezzo = PREZZORIDOTTO;
+                        break;
+                    }
+                case (TipoBiglietto.ridottoConad):
+                    {
+                        Prezzo = PREZZORIDOTTOCONAD;
+                        break;
+                    }
+                case (TipoBiglietto.ridottoCartolina):
+                    {
+                        Prezzo = PREZZORIDOTTOCARTOLINA;
+                        break;
+                    }
+                case (TipoBiglietto.omaggio):
+                    {
+                        Prezzo = PREZZOOMAGGIO;
+                        break;
+                    }
             }
         }
+    }
+
+    public class PassEspositore
+    {
+        private string Id { get; }
+        private string Nome;
+        private string Cognome;
+        private string CodFisc;
+        private string Azienda;
+        private Object Foto;
 
     }
 }
