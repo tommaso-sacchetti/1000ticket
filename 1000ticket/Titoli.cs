@@ -136,8 +136,8 @@ namespace _1000ticket
 
     public class PassEspositore
     {
-        private string id;
-        public string Id { get { return id; } set { id = value; } }
+        private readonly string id;
+        public string Id { get { return id; } }
         private string nome;
         public string Nome { get { return nome; } set { nome = value; } }
         private string cognome;
@@ -149,5 +149,14 @@ namespace _1000ticket
         private Object foto;
         public Object Foto { get { return foto; } set { foto = value; } }
 
+        public PassEspositore(string id, string nome, string cognome, string codFisc, string azienda, object foto)
+        {
+            this.id = id;
+            Nome = nome;
+            Cognome = cognome;
+            CodFisc = codFisc;
+            Azienda = azienda;
+            Foto = foto;
+        }
     }
 }
