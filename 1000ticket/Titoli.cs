@@ -94,8 +94,10 @@ namespace _1000ticket
         public readonly float PREZZORIDOTTOCARTOLINA = 3.8f;
         public readonly float PREZZOOMAGGIO = 0;
 
-        private Boolean Stato { get; set; }
-        private TipoBiglietto TipoTitolo { get; set; }
+        private Boolean stato;
+        public Boolean Stato { get { return stato; } set { stato = value; } }
+        private TipoBiglietto tipoTitolo;
+        public TipoBiglietto TipoTitolo { get { return tipoTitolo; } set { tipoTitolo = value; } }
 
         public Biglietto(TipoBiglietto tipo, string id, DateTime orarioVendita, string usernameVenditore) :
             base(id, orarioVendita, usernameVenditore)
