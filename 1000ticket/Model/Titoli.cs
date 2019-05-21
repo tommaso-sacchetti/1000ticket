@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Net.Sockets;
 
-namespace Model
+namespace _1000Ticket.Model
 {
 
     public enum TipoAbbonamento
@@ -160,7 +160,6 @@ namespace Model
             CodFisc = codFisc;
             Azienda = azienda;
             Foto = foto;
-
         }
     }
 

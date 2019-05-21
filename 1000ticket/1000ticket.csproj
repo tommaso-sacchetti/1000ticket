@@ -11,10 +11,13 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Model\" />
-    <Folder Include="GestioneVendite\" />
-    <Folder Include="GestioneAccessi\" />
-    <Folder Include="GestioneSistema\" />
-    <Folder Include="Login\" />
-    <Folder Include="Log\" />
+    <Folder Include="Controller\" />
+    <Folder Include="Controller\GestioneVendite\" />
+    <Folder Include="Controller\Log\" />
+    <Folder Include="View\" />
+    <Folder Include="Controller\Persistence\" />
+    <Folder Include="Controller\GestioneAccessi\" />
+    <Folder Include="Controller\Login\" />
+    <Folder Include="Controller\Organizzazione\" />
   </ItemGroup>
 </Project>
