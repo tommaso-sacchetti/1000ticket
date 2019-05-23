@@ -70,6 +70,8 @@ namespace _1000ticket.Controller.GestioneAccessi
             {
                 Console.WriteLine(e.ToString());
             }
+
+            return result;
         }
 
 
