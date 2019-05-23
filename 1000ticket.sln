@@ -1,9 +1,8 @@
-
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "1000ticket_client", "1000ticket\1000ticket_client.csproj", "{55A3A69A-B837-4CFD-A008-09E1138461C2}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "1000ticket_test", "1000ticket_test\1000ticket_test.csproj", "{22FAF498-CA9A-4036-BF22-4C3BB71B13E0}"
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28917.181
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "1000ticket_test", "1000ticket_test\1000ticket_test.csproj", "{22FAF498-CA9A-4036-BF22-4C3BB71B13E0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,13 +10,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{55A3A69A-B837-4CFD-A008-09E1138461C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{55A3A69A-B837-4CFD-A008-09E1138461C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{55A3A69A-B837-4CFD-A008-09E1138461C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{55A3A69A-B837-4CFD-A008-09E1138461C2}.Release|Any CPU.Build.0 = Release|Any CPU
 		{22FAF498-CA9A-4036-BF22-4C3BB71B13E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{22FAF498-CA9A-4036-BF22-4C3BB71B13E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{22FAF498-CA9A-4036-BF22-4C3BB71B13E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{22FAF498-CA9A-4036-BF22-4C3BB71B13E0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DE249754-7428-4A60-9C8B-65D9E7E49801}
 	EndGlobalSection
 EndGlobal

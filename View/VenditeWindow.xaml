@@ -1,0 +1,19 @@
+﻿<Window x:Name="_VenditeWindow" x:Class="View.VenditeWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:View"
+        mc:Ignorable="d"
+        Title="1000ticket" Height="450" Width="800">
+    <Grid>
+        <GridSplitter HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="5"/>
+        <GridSplitter HorizontalAlignment="Stretch" Height="419" Margin="393,0" VerticalAlignment="Top"/>
+        <Label Content="Biglietto" Margin="126,56,519,0" VerticalAlignment="Top" FontSize="36"/>
+        <TextBlock HorizontalAlignment="Left" Margin="60,134,0,0" TextWrapping="Wrap" Text="Tipo Biglietto" VerticalAlignment="Top"/>
+        <ComboBox HorizontalAlignment="Left" Margin="58,156,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="ComboBox_SelectionChanged"/>
+        <Button Content="Stampa" HorizontalAlignment="Left" Margin="286,158,0,0" VerticalAlignment="Top" Width="75"/>
+        <TextBlock HorizontalAlignment="Left" Margin="200,150,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22"><Run Text="Prezzo"/><LineBreak/><Run/></TextBlock>
+
+    </Grid>
+</Window>

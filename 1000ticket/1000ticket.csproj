@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>Library</OutputType>
@@ -14,7 +14,6 @@
     <Folder Include="Controller\" />
     <Folder Include="Controller\GestioneVendite\" />
     <Folder Include="Controller\Log\" />
-    <Folder Include="View\" />
     <Folder Include="Controller\Persistence\" />
     <Folder Include="Controller\GestioneAccessi\" />
     <Folder Include="Controller\Login\" />
