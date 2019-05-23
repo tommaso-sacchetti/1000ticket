@@ -1,7 +1,6 @@
 ﻿using System;
 namespace _1000ticket.Controller.GestioneVendite
 {
-    public interface IGenerazioneTitoli
-    {
-    }
+    Biglietto generazioneBiglietto(TipoBiglietto tipo);
+    Abbonamento generazioneAbb(TipoAbbonamento tipo);
 }
