@@ -6,5 +6,6 @@ namespace _1000ticket.Controller.GestioneAccessi
         Boolean VerificaBiglietto(string id);
         Boolean VerificaAbb(string id);
         Boolean VerificaPass(string id);
+        
     }
 }
